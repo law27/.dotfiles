@@ -1,0 +1,37 @@
+theme = "gruvbox-dark"
+icons = "awesome"
+
+
+[[block]]
+block = "music"
+player = "spotify"
+buttons = ["play", "next"]
+
+[[block]]
+block = "memory"
+display_type = "memory"
+format_mem = "{Mup}%"
+format_swap = "{SUp}%"
+
+[[block]]
+block = "cpu"
+interval = 1
+
+
+[[block]]
+block = "sound"
+
+[[block]]
+block = "battery"
+device = "BAT1"
+format = "{percentage}% {power}"
+
+[[block]]
+block = "time"
+interval = 60
+format = "%a %d/%m %R"
+
+[[block]]
+block = "networkmanager"
+on_click = "alacritty -e nmtui"
+device_format = "{icon}{ap}"

@@ -25,6 +25,7 @@ call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
 
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+Plug 'sainnhe/forest-night'
 Plug 'lifepillar/vim-solarized8'
 Plug 'junegunn/vim-easy-align'
 Plug 'udalov/kotlin-vim'
@@ -53,6 +54,11 @@ Plug 'pangloss/vim-javascript'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'neoclide/coc.nvim'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'mattn/emmet-vim'
+Plug 'joshdick/onedark.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 
 
 if has('nvim')
@@ -79,7 +85,7 @@ Plug 'NLKNguyen/papercolor-theme'
 call plug#end()
 let g:solarized_termcolors=256
 set background=dark
-colorscheme gruvbox
+colorscheme forest-night
 source ~/.vim/plugged/vim-snipmate/plugin/snipMate.vim
 
 let &t_SI = "\e[5 q"
@@ -110,7 +116,7 @@ if exists("g:loaded_webdevicons")
   call webdevicons#refresh()
 endif
 
-nmap <F6> :NERDTreeToggle<CR>
+map <F6> :NERDTreeToggle<CR>
 
 let g:neovide_refresh_rate=140
 set clipboard=unnamed
@@ -124,3 +130,4 @@ set guitablabel=%!GuiTabLabel()
 set mouse=a
 let g:prettier#autoformat_require_pragma = 0
 let g:prettier#autoformat = 1
+nmap <CR> <C-y>,

@@ -17,62 +17,50 @@ filetype plugin on
 let java_highlight_functions = 1
 let java_highlight_all = 1
 
-" Specify a directory for plugins
-" - For Neovim: stdpath('data') . '/plugged'
-" - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
-" Make sure you use single quotes
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'gruvbox-community/gruvbox'
+Plug 'ryanoasis/vim-devicons'
+Plug 'jiangmiao/auto-pairs'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-Plug 'junegunn/vim-easy-align'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
+Plug 'hrsh7th/nvim-compe'
+
+Plug 'mattn/emmet-vim'
+
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
-" Any valid git URL is allowed
-Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
-" Multiple Plug commands can be written in a single line using | separators
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
-" On-demand loading
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-Plug 'gruvbox-community/gruvbox'
-Plug 'ryanoasis/vim-devicons'
-Plug 'altercation/vim-colors-solarized'
-Plug 'reedes/vim-colors-pencil'
-Plug 'rakr/vim-colors-rakr'
-Plug 'noahfrederick/vim-hemisu'
-
-
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-" Using a non-master branch
-
-" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
-
-" Plugin options
-
-" Plugin outside ~/.vim/plugged with post-update hook
-
-" Unmanaged plugin (manually installed and updated)
-
-" Initialize plugin system
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'NLKNguyen/papercolor-theme'
 call plug#end()
+
+let g:snipMate = { 'snippet_version' : 1 }
+
 set background=dark
 colorscheme gruvbox
-source ~/.vim/plugged/vim-snipmate/plugin/snipMate.vim
+set mouse=a
+set clipboard+=unnamedplus
 
-let &t_SI = "\e[5 q"
-let &t_EI = "\e[2 q"
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
-set timeoutlen=1000 ttimeoutlen=0
+autocmd FileType html nmap <CR> <C-y>,
+autocmd VimResized * :wincmd =
+
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_extra_types = 1
